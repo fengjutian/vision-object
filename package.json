@@ -1,0 +1,136 @@
+{
+  "name": "vision-camera-image-labeler",
+  "version": "0.1.6",
+  "description": "VisionCamera Frame Processor Plugin to label images using MLKit Vision",
+  "main": "lib/commonjs/index",
+  "module": "lib/module/index",
+  "types": "lib/typescript/src/index.d.ts",
+  "react-native": "src/index",
+  "source": "src/index",
+  "files": [
+    "src",
+    "lib",
+    "android",
+    "ios",
+    "cpp",
+    "vision-camera-image-labeler.podspec",
+    "!lib/typescript/example",
+    "!android/build",
+    "!ios/build",
+    "!**/__tests__",
+    "!**/__fixtures__",
+    "!**/__mocks__"
+  ],
+  "scripts": {
+    "typescript": "tsc --noEmit",
+    "lint": "eslint \"**/*.{js,ts,tsx}\"",
+    "prepare": "bob build",
+    "release": "release-it",
+    "example": "yarn --cwd example",
+    "pods": "cd example && pod-install --quiet",
+    "bootstrap": "yarn example && yarn && yarn pods"
+  },
+  "keywords": [
+    "react-native",
+    "ios",
+    "android"
+  ],
+  "repository": "https://github.com/mrousavy/vision-camera-image-labeler",
+  "author": "Marc Rousavy <marcrousavy@hotmail.com> (https://github.com/mrousavy)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mrousavy/vision-camera-image-labeler/issues"
+  },
+  "homepage": "https://github.com/mrousavy/vision-camera-image-labeler#readme",
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/"
+  },
+  "devDependencies": {
+    "@react-native-community/eslint-config": "^3.2.0",
+    "@release-it/conventional-changelog": "^10.0.0",
+    "@tsconfig/react-native": "^3.0.5",
+    "@types/react": "~18.2.79",
+    "commitlint": "^19.0.0",
+    "eslint": "^9.19.0",
+    "eslint-config-prettier": "^10.0.1",
+    "eslint-plugin-prettier": "^5.2.3",
+    "pod-install": "^0.1.26",
+    "prettier": "^3.3.3",
+    "react": "18.2.0",
+    "react-native": "0.76.9",
+    "react-native-builder-bob": "^0.36.0",
+    "react-native-reanimated": "3.16.1",
+    "react-native-vision-camera": "4.6.3",
+    "react-native-worklets-core": "1.5.0",
+    "release-it": "^18.1.2",
+    "typescript": "~5.3.3"
+  },
+  "peerDependencies": {
+    "react": ">= 18",
+    "react-native": ">= 0.76",
+    "react-native-reanimated": ">=3.0.0",
+    "react-native-vision-camera": ">= 4.0"
+  },
+  "release-it": {
+    "git": {
+      "commitMessage": "chore: release ${version}",
+      "tagName": "v${version}"
+    },
+    "npm": {
+      "publish": true
+    },
+    "github": {
+      "release": true
+    },
+    "plugins": {
+      "@release-it/conventional-changelog": {
+        "preset": "angular"
+      }
+    }
+  },
+  "eslintConfig": {
+    "root": true,
+    "extends": [
+      "@react-native-community",
+      "prettier"
+    ],
+    "rules": {
+      "prettier/prettier": [
+        "error",
+        {
+          "quoteProps": "consistent",
+          "singleQuote": true,
+          "tabWidth": 2,
+          "trailingComma": "es5",
+          "useTabs": false
+        }
+      ],
+      "react-hooks/exhaustive-deps": [
+        "warn",
+        {
+          "additionalHooks": "(useFrameProcessor)"
+        }
+      ]
+    }
+  },
+  "eslintIgnore": [
+    "node_modules/",
+    "lib/"
+  ],
+  "prettier": {
+    "quoteProps": "consistent",
+    "singleQuote": true,
+    "tabWidth": 2,
+    "trailingComma": "es5",
+    "useTabs": false
+  },
+  "react-native-builder-bob": {
+    "source": "src",
+    "output": "lib",
+    "targets": [
+      "commonjs",
+      "module",
+      "typescript"
+    ]
+  }
+}
